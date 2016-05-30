@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="cb_item_tag" type="id"></item>
+    <item name="tag_position" type="id"></item>
+    <item name="id_tab_txt" type="id">888</item>
+</resources>

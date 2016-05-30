@@ -1,0 +1,16 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/titlebar</item>
+        <item name="colorPrimaryDark">@color/titlebar</item>
+        <item name="colorAccent">@color/titlebar</item>
+        <item name="tabView">@style/MyTabView</item>
+    </style>
+
+    <style name="MyTabView" parent="TabView">
+        <item name="iconWidth">28dp</item>
+        <item name="iconHeight">28dp</item>
+    </style>
+</resources>

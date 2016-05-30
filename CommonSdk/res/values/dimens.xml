@@ -1,0 +1,51 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="tag_corner_radius">20.0dip</dimen>
+    <dimen name="tag_horizontal_spacing">8.0dip</dimen>
+    <dimen name="tag_vertical_spacing">6.0dip</dimen>
+    <dimen name="common_margin">12.0dip</dimen>
+    <dimen name="common_margin_10">10.0dip</dimen>
+    <!-- 超小标题字号 -->
+    <dimen name="font_ten">10sp</dimen>
+    <!-- 很小标题字号 -->
+    <dimen name="font_twelve">12sp</dimen>
+    <!-- 小标题字号 -->
+    <dimen name="font_fourteen">14sp</dimen>
+    <!-- 中标题字号 -->
+    <dimen name="font_Sixteen">16sp</dimen>
+    <!-- 大标题字号 -->
+    <dimen name="font_Eighteen">18sp</dimen>
+    <!-- 超大标题字号 -->
+    <dimen name="font_Twenty">20sp</dimen>
+    <!-- 特大标题字号 -->
+    <dimen name="font_22">22sp</dimen>
+    <dimen name="font_TwentyFour">24sp</dimen>
+    <dimen name="shadow_width">5dp</dimen>
+    <dimen name="slidingmenu_offset">60dp</dimen>
+    <dimen name="button_text_size">14sp</dimen>
+    <dimen name="expand_tab_item_height">45dp</dimen>
+    <dimen name="expand_tab_eara_height">380dp</dimen>
+    <dimen name="head_bar_height">45dp</dimen>
+    <!-- padding -->
+    <dimen name="padding_svprogresshuddefault">15dp</dimen>
+    <!-- 窗口最小宽度 -->
+    <dimen name="size_minwidth_svprogresshuddefault">120dp</dimen>
+    <!-- 图片宽高 -->
+    <dimen name="size_image_bigloading">80dp</dimen>
+    <!-- 图片宽高 -->
+    <dimen name="size_image_smallloading">60dp</dimen>
+    <!-- 圆角 -->
+    <dimen name="radius_svprogresshuddefault">25px</dimen>
+    <!-- 提示的文字大小 -->
+    <dimen name="textSize_svprogresshuddefault_msg">15sp</dimen>
+    <dimen name="margintop_svprogresshuddefault_msg">10dp</dimen>
+    <!--psts-->
+    <dimen name="psts_dot_wh">8dp</dimen>
+    <dimen name="psts_dot_m_right">9dp</dimen>
+    <dimen name="psts_dot_m_top">7dp</dimen>
+    <dimen name="psts_dot_linelayout_h">23dp</dimen>
+    <dimen name="psts_dot_txt_size">10sp</dimen>
+</resources>
