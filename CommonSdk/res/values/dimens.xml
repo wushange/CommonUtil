@@ -48,4 +48,7 @@
     <dimen name="psts_dot_m_top">7dp</dimen>
     <dimen name="psts_dot_linelayout_h">23dp</dimen>
     <dimen name="psts_dot_txt_size">10sp</dimen>
+    <dimen name="padding">8dp</dimen>
+    <dimen name="radius">8dp</dimen>
+    <dimen name="text_size">16sp</dimen>
 </resources>

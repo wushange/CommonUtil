@@ -10,11 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
-    <com.wushange.commsdk.banner.ConvenientBanner
-        android:id="@+id/convenientBanner"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:canLoop="true" />
 
     <Button
         android:id="@+id/bt1"
@@ -57,12 +52,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="我是中间显示的toast" />
-
-    <Button
-        android:id="@+id/bt8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="跳转到左滑返回的activity" />
 
 
 </LinearLayout>

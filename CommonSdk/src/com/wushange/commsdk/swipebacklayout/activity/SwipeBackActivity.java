@@ -1,13 +1,13 @@
 package com.wushange.commsdk.swipebacklayout.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.wushange.commsdk.swipebacklayout.SwipeBackLayout;
 import com.wushange.commsdk.swipebacklayout.Utils;
 
-public class SwipeBackActivity extends Activity implements
+public class SwipeBackActivity extends AppCompatActivity implements
         SwipeBackActivityBase {
     private SwipeBackActivityHelper mHelper;
 
