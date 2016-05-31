@@ -101,7 +101,6 @@ public class ToolTipView extends LinearLayout implements ViewTreeObserver.OnPreD
             drawable.setGradientType(GradientDrawable.RECTANGLE);
             drawable.setCornerRadius(radius);
 
-            //noinspection deprecation
             text.setBackgroundDrawable(drawable);
         } else {
             text.setBackgroundColor(backgroundColor);
@@ -110,7 +109,6 @@ public class ToolTipView extends LinearLayout implements ViewTreeObserver.OnPreD
         arrow = new ImageView(context);
         arrow.setColorFilter(new PorterDuffColorFilter(backgroundColor, PorterDuff.Mode.MULTIPLY));
 
-        // TODO supports Gravity.NO_GRAVITY
         switch (gravity) {
             case Gravity.LEFT:
                 setOrientation(HORIZONTAL);
@@ -139,16 +137,10 @@ public class ToolTipView extends LinearLayout implements ViewTreeObserver.OnPreD
         }
     }
 
-    /**
-     * Sets a listener that will be called when the tool tip view is clicked.
-     */
     public void setOnToolTipClickedListener(OnToolTipClickedListener listener) {
         this.listener = listener;
     }
 
-    /**
-     * Shows the tool tip.
-     */
     @UiThread
     public void show() {
         MarginLayoutParams layoutParams = new MarginLayoutParams(
@@ -158,9 +150,6 @@ public class ToolTipView extends LinearLayout implements ViewTreeObserver.OnPreD
         getViewTreeObserver().addOnPreDrawListener(this);
     }
 
-    /**
-     * Shows the tool tip with the specified delay.
-     */
     public void showDelayed(long milliSeconds) {
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
@@ -170,9 +159,6 @@ public class ToolTipView extends LinearLayout implements ViewTreeObserver.OnPreD
         }, milliSeconds);
     }
 
-    /**
-     * Removes the tool tip view from the view hierarchy.
-     */
     @UiThread
     public void remove() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
@@ -236,17 +222,14 @@ public class ToolTipView extends LinearLayout implements ViewTreeObserver.OnPreD
         int width = getWidth();
         int height = getHeight();
 
-        // TODO supports Gravity.NO_GRAVITY
         if (gravity == Gravity.TOP || gravity == Gravity.BOTTOM) {
             MarginLayoutParams layoutParams = (MarginLayoutParams) getLayoutParams();
             if (gravity == Gravity.TOP) {
                 layoutParams.topMargin = anchorTop - height;
             } else {
-                // gravity == Gravity.BOTTOM
                 layoutParams.topMargin = anchorTop + anchorHeight;
             }
 
-            // align the horizontal center of the anchor view and the tool tip
             int anchorHorizontalCenter = anchorLeft + anchorWidth / 2;
             int left = anchorHorizontalCenter - width / 2;
             int right = left + width;
@@ -255,7 +238,6 @@ public class ToolTipView extends LinearLayout implements ViewTreeObserver.OnPreD
 
             setLayoutParams(layoutParams);
 
-            // align the arrow to the horizontal center of the anchor view
             layoutParams = (MarginLayoutParams) arrow.getLayoutParams();
             layoutParams.leftMargin = anchorHorizontalCenter - leftMargin - arrow.getWidth() / 2;
             arrow.setLayoutParams(layoutParams);
@@ -263,19 +245,16 @@ public class ToolTipView extends LinearLayout implements ViewTreeObserver.OnPreD
             pivotX = anchorHorizontalCenter - leftMargin;
             pivotY = gravity == Gravity.TOP ? height - arrow.getHeight() : 0.0F;
         } else {
-            // gravity == Gravity.LEFT || gravity == Gravity.RIGHT
             MarginLayoutParams layoutParams = (MarginLayoutParams) getLayoutParams();
             if (gravity == Gravity.LEFT) {
                 layoutParams.rightMargin = parentWidth - anchorLeft;
                 layoutParams.leftMargin = Math.max(0, anchorLeft - width);
                 text.setMaxWidth(anchorLeft - layoutParams.leftMargin - arrow.getWidth());
             } else {
-                // gravity == Gravity.RIGHT
                 layoutParams.leftMargin = anchorLeft + anchorWidth;
                 text.setMaxWidth(parentWidth - layoutParams.leftMargin - arrow.getWidth());
             }
 
-            // align the vertical center of the anchor view and the tool tip
             int anchorVerticalCenter = anchorTop + anchorHeight / 2;
             int top = anchorVerticalCenter - height / 2;
             int bottom = top + height;
@@ -284,7 +263,6 @@ public class ToolTipView extends LinearLayout implements ViewTreeObserver.OnPreD
 
             setLayoutParams(layoutParams);
 
-            // align the arrow to the vertical center of the anchor view
             layoutParams = (MarginLayoutParams) arrow.getLayoutParams();
             layoutParams.topMargin = anchorVerticalCenter - topMargin - arrow.getHeight() / 2;
             arrow.setLayoutParams(layoutParams);
@@ -320,9 +298,6 @@ public class ToolTipView extends LinearLayout implements ViewTreeObserver.OnPreD
         remove();
     }
 
-    /**
-     * Used to build a tool tip view.
-     */
     public static class Builder {
         private final Context context;
         private View anchorView;
@@ -330,55 +305,30 @@ public class ToolTipView extends LinearLayout implements ViewTreeObserver.OnPreD
         private ToolTip toolTip;
         private int gravity = Gravity.BOTTOM;
 
-        /**
-         * Creates a new builder.
-         */
         public Builder(Context context) {
             this.context = context;
         }
 
-        /**
-         * Sets the view that the tool tip view will try to anchor.
-         */
         public Builder withAnchor(View anchorView) {
             this.anchorView = anchorView;
             return this;
         }
 
-        /**
-         * Sets the parent view for the tool tip view. Otherwise, the tool tip view will added to
-         * the parent view of the anchor view.
-         * <p/>
-         * This is useful when the anchor view is a sub view of e.g. a LinearLayout. Note that it
-         * assumes the parent view has the same size as the parent view of the anchor view.
-         */
         public Builder withParent(ViewGroup parentView) {
             this.parentView = parentView;
             return this;
         }
 
-        /**
-         * Sets the tool tip that will be shown.
-         */
         public Builder withToolTip(ToolTip toolTip) {
             this.toolTip = toolTip;
             return this;
         }
 
-        /**
-         * Sets the tool tip gravity. By default, it will be anchored to bottom of the anchor view.
-         * <p/>
-         * Only the following are supported: Gravity.TOP, Gravity.BOTTOM, Gravity.LEFT, Gravity.RIGHT,
-         * Gravity.START, and Gravity.END.
-         */
         public Builder withGravity(int gravity) {
             this.gravity = gravity;
             return this;
         }
 
-        /**
-         * Creates a tool tip view.
-         */
         @UiThread
         public ToolTipView build() {
             if (gravity == GRAVITY_START || gravity == GRAVITY_END) {

@@ -40,8 +40,7 @@ public class ThreeFragment extends BaseFragmentV4 {
     }
 
     @Override
-    public void lazyInitBusiness(Context mContext) {
-        new AsyncTaskLoading(mLoadingView).execute(0);
+    public void lazyInitBusiness(Context mContext) {new AsyncTaskLoading(mLoadingView).execute(0);
 
     }
 
