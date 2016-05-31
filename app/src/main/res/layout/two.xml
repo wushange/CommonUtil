@@ -26,6 +26,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="显示时间选择" />
+
+        <Button
+            android:id="@+id/two_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="跳转到中间凸起的底部导航栏样式" />
+
+        <Button
+            android:id="@+id/two_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Acahe存储测试" />
+
+        <Button
+            android:id="@+id/two_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Acahe读取测试" />
     </LinearLayout>
 
     <com.wushange.commsdk.view.LoadingView

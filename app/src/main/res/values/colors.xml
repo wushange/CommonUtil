@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <color name="comui_tab_text_color">#ff333333</color>
     <color name="no_color">#00000000</color>
     <color name="popup_main_background">#00000000</color>
     <color name="choose_eara_item_press_color">#f4f4f4</color>

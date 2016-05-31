@@ -38,7 +38,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".module.activity.TestSwipeBackActivity"/>
+        <activity android:name=".module.activity.TestSwipeBackActivity" />
+        <activity android:name=".module.activity.CenterTabMainActivity" />
     </application>
 
 </manifest>
