@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DemoProgrect</string>
+    <string name="tv_loading">正加载,请稍后...</string>
+    <string name="no_data">网络异常...</string>
 </resources>

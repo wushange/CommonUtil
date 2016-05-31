@@ -15,43 +15,6 @@
         android:id="@+id/bt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="自定义对话框" />
-
-    <Button
-        android:id="@+id/bt2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ActionSheetDialog" />
-
-    <Button
-        android:id="@+id/bt3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="提示工具类" />
-
-    <Button
-        android:id="@+id/bt7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Simple提示工具类" />
-
-    <Button
-        android:id="@+id/bt4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="HUD风格提示框" />
-
-    <Button
-        android:id="@+id/bt5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="我是toast" />
-
-    <Button
-        android:id="@+id/bt6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="我是中间显示的toast" />
-
+        android:text=" 我可以左滑返回" />
 
 </LinearLayout>
