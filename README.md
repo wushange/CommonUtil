@@ -3,7 +3,7 @@
 源码Demo下载:https://github.com/wushge11/CommonUtil
 eclipse和studio的点击这里：http://download.csdn.net/detail/wushge11/9514499
  
-使用方法：   compile 'com.wushange:commutilSdk:2.0.2'
+使用方法：   compile 'com.wushange:commutilSdk:2.0.22'
 
 
 欢迎大家加入我的分享交流群 
@@ -13,6 +13,10 @@ QQ群：74406192
 ![这里写图片描述](http://img.blog.csdn.net/20160531174549747)
 
 更新日志：
+	2016-6-2号更新在Base中添加显示loading 和消失dismiss
+	在继承了base类中可直接调用方法 showloading和dissmiss
+	效果图
+	![这里写图片描述](http://img.blog.csdn.net/20160602174928012)
 	2016-5-27号BaseFragment支持懒加载，在继承BaseFragemnt的fragmenr中实现 lazyInitBusiness方法 ，这个方法会在用户可见状态时才会加载。适合viewpage+fragment实现tab方式的懒加载。主要是用fragment的setUserVisibleHint 方法来实现懒加载效果。
 	2016-5-13号添加banner库
 智能banner 手指放上就自动暂停循环播放松开继续
