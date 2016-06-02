@@ -117,7 +117,11 @@ public class SVProgressHUD {
         mSharedView.showWithStatus(string);
         svShow();
     }
-
+    public void showWithStatusCanCancelable(String string) {
+        setMaskType(SVProgressHUDMaskType.BlackCancel);
+        mSharedView.showWithStatus(string);
+        svShow();
+    }
     public void showWithStatus(String string, SVProgressHUDMaskType maskType) {
         setMaskType(maskType);
         mSharedView.showWithStatus(string);

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.wushange.commsdk.customview.svprogresshud.SVProgressHUD;
 import com.wushange.commsdk.swipebacklayout.activity.SwipeBackActivity;
 
 import org.xutils.x;
@@ -25,6 +26,7 @@ public abstract class BaseSwipeBackActivity extends SwipeBackActivity implements
 
     private WeakReference<Activity> context = null;
     private View mContextView = null;
+    private SVProgressHUD mSVProgressHUD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,5 +76,36 @@ public abstract class BaseSwipeBackActivity extends SwipeBackActivity implements
         else
             return null;
     }
+
+    protected void showLoading() {
+        mSVProgressHUD = new SVProgressHUD(getContext());
+        mSVProgressHUD.showWithStatus("请稍后...");
+
+    }
+
+    protected void showLoading(String text) {
+        mSVProgressHUD = new SVProgressHUD(getContext());
+        mSVProgressHUD.showWithStatus(text);
+
+    }
+
+    protected void showLoadingCanCancelable() {
+        mSVProgressHUD = new SVProgressHUD(getContext());
+        mSVProgressHUD.showWithStatusCanCancelable("请稍后...");
+
+    }
+
+    protected void showLoadingCanCancelable(String text) {
+        mSVProgressHUD = new SVProgressHUD(getContext());
+        mSVProgressHUD.showWithStatusCanCancelable(text);
+
+    }
+
+    protected void dissLoading() {
+        if (mSVProgressHUD != null) {
+            mSVProgressHUD.dismiss();
+        }
+    }
+
 
 }

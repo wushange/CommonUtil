@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.wushange.commsdk.customview.svprogresshud.SVProgressHUD;
+
 import org.xutils.x;
 
 import java.lang.ref.WeakReference;
@@ -18,6 +20,8 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseAct
 
     private WeakReference<Activity> context = null;
     private View mContextView = null;
+
+    private SVProgressHUD mSVProgressHUD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +70,25 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseAct
             return context.get();
         else
             return null;
+    }
+
+
+    protected void showLoading(String text) {
+        mSVProgressHUD = new SVProgressHUD(getContext());
+        mSVProgressHUD.showWithStatus("请稍后...");
+
+    }
+
+    protected void showLoadingCanCancelable(String text) {
+        mSVProgressHUD = new SVProgressHUD(getContext());
+        mSVProgressHUD.showWithStatusCanCancelable("请稍后...");
+
+    }
+
+    protected void dissLoading() {
+        if (mSVProgressHUD != null) {
+            mSVProgressHUD.dismiss();
+        }
     }
 
 }

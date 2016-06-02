@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.wushange.commsdk.customview.svprogresshud.SVProgressHUD;
+
 import org.xutils.x;
 
 public abstract class BaseFragmentV4 extends Fragment implements IBaseFragment {
@@ -19,6 +21,7 @@ public abstract class BaseFragmentV4 extends Fragment implements IBaseFragment {
     private boolean isVisible;
     private boolean isPrepared;
     private boolean isFirstLoad = true;
+    private SVProgressHUD mSVProgressHUD;
 
     @Override
     public void onAttach(Activity activity) {
@@ -158,5 +161,35 @@ public abstract class BaseFragmentV4 extends Fragment implements IBaseFragment {
 
     public int getIconId() {
         return iconId;
+    }
+
+    protected void showLoading() {
+        mSVProgressHUD = new SVProgressHUD(getContext());
+        mSVProgressHUD.showWithStatus("请稍后...");
+
+    }
+
+    protected void showLoading(String text) {
+        mSVProgressHUD = new SVProgressHUD(getContext());
+        mSVProgressHUD.showWithStatus(text);
+
+    }
+
+    protected void showLoadingCanCancelable() {
+        mSVProgressHUD = new SVProgressHUD(getContext());
+        mSVProgressHUD.showWithStatusCanCancelable("请稍后...");
+
+    }
+
+    protected void showLoadingCanCancelable(String text) {
+        mSVProgressHUD = new SVProgressHUD(getContext());
+        mSVProgressHUD.showWithStatusCanCancelable(text);
+
+    }
+
+    protected void dissLoading() {
+        if (mSVProgressHUD != null) {
+            mSVProgressHUD.dismiss();
+        }
     }
 }

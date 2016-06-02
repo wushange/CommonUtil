@@ -59,6 +59,7 @@ public class TwoFragment extends BaseFragmentV4 {
 
     @Override
     public void lazyInitBusiness(Context mContext) {
+        showLoading();
         new AsyncTaskLoading(mLoadingView).execute(0);
     }
 
