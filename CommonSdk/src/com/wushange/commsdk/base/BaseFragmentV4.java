@@ -165,7 +165,7 @@ public abstract class BaseFragmentV4 extends Fragment implements IBaseFragment {
 
     protected void showLoading() {
         mSVProgressHUD = new SVProgressHUD(getContext());
-        mSVProgressHUD.showWithStatus("«Î…‘∫Û...");
+        mSVProgressHUD.showWithStatus("Wait...");
 
     }
 
@@ -177,7 +177,7 @@ public abstract class BaseFragmentV4 extends Fragment implements IBaseFragment {
 
     protected void showLoadingCanCancelable() {
         mSVProgressHUD = new SVProgressHUD(getContext());
-        mSVProgressHUD.showWithStatusCanCancelable("«Î…‘∫Û...");
+        mSVProgressHUD.showWithStatusCanCancelable("Wait...");
 
     }
 
