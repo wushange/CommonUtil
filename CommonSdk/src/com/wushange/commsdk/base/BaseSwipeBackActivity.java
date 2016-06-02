@@ -16,7 +16,7 @@ import java.lang.ref.WeakReference;
 
 
 /**
- * android  ActivityÂü∫Á±ª
+ * android  Activityª˘¿‡
  *
  * @author wushange
  * @version 1.0
@@ -79,7 +79,7 @@ public abstract class BaseSwipeBackActivity extends SwipeBackActivity implements
 
     protected void showLoading() {
         mSVProgressHUD = new SVProgressHUD(getContext());
-        mSVProgressHUD.showWithStatus("ËØ∑Á®çÂêé...");
+        mSVProgressHUD.showWithStatus("«Î…‘∫Û...");
 
     }
 
@@ -91,7 +91,7 @@ public abstract class BaseSwipeBackActivity extends SwipeBackActivity implements
 
     protected void showLoadingCanCancelable() {
         mSVProgressHUD = new SVProgressHUD(getContext());
-        mSVProgressHUD.showWithStatusCanCancelable("ËØ∑Á®çÂêé...");
+        mSVProgressHUD.showWithStatusCanCancelable("«Î…‘∫Û...");
 
     }
 

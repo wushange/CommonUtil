@@ -75,13 +75,13 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseAct
 
     protected void showLoading(String text) {
         mSVProgressHUD = new SVProgressHUD(getContext());
-        mSVProgressHUD.showWithStatus("ËØ∑Á®çÂêé...");
+        mSVProgressHUD.showWithStatus("«Î…‘∫Û...");
 
     }
 
     protected void showLoadingCanCancelable(String text) {
         mSVProgressHUD = new SVProgressHUD(getContext());
-        mSVProgressHUD.showWithStatusCanCancelable("ËØ∑Á®çÂêé...");
+        mSVProgressHUD.showWithStatusCanCancelable("«Î…‘∫Û...");
 
     }
 
