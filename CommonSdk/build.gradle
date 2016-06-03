@@ -63,7 +63,7 @@ publish {
     userOrg = 'wushge11'//bintray.com用户名
     groupId = 'com.wushange'//jcenter上的路径
     artifactId = 'commutilSdk'//项目名称
-    publishVersion = '2.0.22'//版本号
+    publishVersion = '2.0.222'//版本号
     desc = '集成常用快速开发框架轻量级,Fragment懒加载'//描述，不重要
     website = 'https://github.com/wushge11/commonsdk'//网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好了
 }

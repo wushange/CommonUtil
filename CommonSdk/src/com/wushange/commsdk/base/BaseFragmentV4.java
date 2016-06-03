@@ -82,6 +82,18 @@ public abstract class BaseFragmentV4 extends Fragment implements IBaseFragment {
         }
     }
 
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (!hidden) {
+            isVisible = true;
+            onVisible();
+        } else {
+            isVisible = false;
+            onInvisible();
+        }
+    }
+
     protected void onVisible() {
         lazyLoad();
     }
