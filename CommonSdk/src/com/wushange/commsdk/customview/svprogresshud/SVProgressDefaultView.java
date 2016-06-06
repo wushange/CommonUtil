@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.wushange.commsdk.R;
 
+import net.frakbot.jumpingbeans.JumpingBeans;
+
 public class SVProgressDefaultView extends LinearLayout {
     private int resBigLoading = R.drawable.ic_svstatus_loading;
     private int resInfo = R.drawable.ic_svstatus_info;
@@ -92,6 +94,8 @@ public class SVProgressDefaultView extends LinearLayout {
     public void showProgress(String string) {
         clearAnimations();
         tvMsg.setText(string);
+        JumpingBeans.
+                with(tvMsg).appendJumpingDots().build();
         ivBigLoading.setVisibility(View.GONE);
         ivSmallLoading.setVisibility(View.GONE);
         circleProgressBar.setVisibility(View.VISIBLE);
@@ -102,6 +106,8 @@ public class SVProgressDefaultView extends LinearLayout {
         clearAnimations();
         ivSmallLoading.setImageResource(res);
         tvMsg.setText(string);
+        JumpingBeans.
+                with(tvMsg).appendJumpingDots().build();
         ivBigLoading.setVisibility(View.GONE);
         circleProgressBar.setVisibility(View.GONE);
         ivSmallLoading.setVisibility(View.VISIBLE);
