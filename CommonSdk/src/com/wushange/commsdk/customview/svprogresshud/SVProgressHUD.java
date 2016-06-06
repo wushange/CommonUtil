@@ -51,6 +51,9 @@ public class SVProgressHUD {
     private Animation inAnim;
     private int gravity = Gravity.CENTER;
 
+    public SVProgressDefaultView getmSharedView() {
+        return mSharedView;
+    }
 
     public SVProgressHUD(Context context) {
         this.context = context;

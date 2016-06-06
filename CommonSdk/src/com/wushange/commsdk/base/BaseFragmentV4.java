@@ -204,4 +204,8 @@ public abstract class BaseFragmentV4 extends Fragment implements IBaseFragment {
             mSVProgressHUD.dismiss();
         }
     }
+
+    public SVProgressHUD getmSVProgressHUD() {
+        return mSVProgressHUD;
+    }
 }

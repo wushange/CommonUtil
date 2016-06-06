@@ -76,6 +76,7 @@ public class SVProgressDefaultView extends LinearLayout {
     public void showErrorWithStatus(String string) {
         showBaseStatus(resError, string);
     }
+
     public void showWithProgress(String string) {
         showProgress(string);
     }
@@ -84,7 +85,7 @@ public class SVProgressDefaultView extends LinearLayout {
         return circleProgressBar;
     }
 
-    public void setText(String string){
+    public void setText(String string) {
         tvMsg.setText(string);
     }
 
@@ -116,4 +117,7 @@ public class SVProgressDefaultView extends LinearLayout {
         ivSmallLoading.clearAnimation();
     }
 
+    public TextView getTvMsg() {
+        return tvMsg;
+    }
 }

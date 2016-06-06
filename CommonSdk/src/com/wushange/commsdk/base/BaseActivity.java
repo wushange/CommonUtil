@@ -91,4 +91,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseAct
         }
     }
 
+    public SVProgressHUD getmSVProgressHUD() {
+        return mSVProgressHUD;
+    }
 }
