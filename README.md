@@ -3,7 +3,7 @@
 源码Demo下载:https://github.com/wushge11/CommonUtil
 eclipse和studio的点击这里：http://download.csdn.net/detail/wushge11/9514499
  
-使用方法：   compile 'com.wushange:commutilSdk:2.0.227@aar'
+使用方法：   compile 'com.wushange:commutilSdk:2.0.229@aar'
 
 
 欢迎大家加入我的分享交流群 
