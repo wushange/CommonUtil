@@ -3,7 +3,7 @@
 源码Demo下载:https://github.com/wushge11/CommonUtil
 eclipse和studio的点击这里：http://download.csdn.net/detail/wushge11/9514499
  
-使用方法：   compile 'com.wushange:commutilSdk:2.0.229@aar'
+使用方法：   compile 'com.wushange:commutilSdk:2.0.230@aar'
 
 
 欢迎大家加入我的分享交流群 
@@ -13,7 +13,8 @@ QQ群：74406192
 ![这里写图片描述](http://img.blog.csdn.net/20160531174549747)
 
 更新日志：
-	2016-6-6号跟新， 缩减库大小，删除其他第三方类库，fastjson等等，开发时请开发者自行在自己的项目中加入，避免发生版本冲突。添加loading动画跳跃效果
+	2016-06-08号更新日志，在baseactivity中添加点击空白处隐藏输入发，修复Base类中 dissloading在非UI线程使用时报错
+	2016-6-6号更新， 缩减库大小，删除其他第三方类库，fastjson等等，开发时请开发者自行在自己的项目中加入，避免发生版本冲突。添加loading动画跳跃效果
 	2016-6-2号更新在Base中添加显示loading 和消失dismiss
 	在继承了base类中可直接调用方法 showloading和dissmiss
 	效果图
