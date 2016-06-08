@@ -2,13 +2,17 @@ package com.wushange.commsdk.base;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 import com.wushange.commsdk.customview.svprogresshud.SVProgressHUD;
 import com.wushange.commsdk.swipebacklayout.activity.SwipeBackActivity;
+import com.wushange.commsdk.util.HideInputUtils;
 
 import org.xutils.x;
 
@@ -102,10 +106,36 @@ public abstract class BaseSwipeBackActivity extends SwipeBackActivity implements
     }
 
     protected void dissLoading() {
-        if (mSVProgressHUD != null) {
-            mSVProgressHUD.dismiss();
-        }
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (mSVProgressHUD != null) {
+                    mSVProgressHUD.dismiss();
+                }
+            }
+        });
+
     }
 
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+            View v = getCurrentFocus();
+            if (HideInputUtils.isShouldHideInput(v, ev)) {
 
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imm != null) {
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                }
+            }
+            return super.dispatchTouchEvent(ev);
+        }
+        if (getWindow().superDispatchTouchEvent(ev)) {
+            return true;
+        }
+        return onTouchEvent(ev);
+    }
+    public SVProgressHUD getmSVProgressHUD() {
+        return mSVProgressHUD;
+    }
 }

@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 
 import com.wushange.commsdk.customview.svprogresshud.SVProgressHUD;
 
+import net.frakbot.jumpingbeans.JumpingBeans;
+
 import org.xutils.x;
 
 public abstract class BaseFragmentV4 extends Fragment implements IBaseFragment {
@@ -178,32 +180,50 @@ public abstract class BaseFragmentV4 extends Fragment implements IBaseFragment {
     protected void showLoading() {
         mSVProgressHUD = new SVProgressHUD(getContext());
         mSVProgressHUD.showWithStatus("Wait...");
+        JumpingBeans.
+                with(mSVProgressHUD.getmSharedView().getTvMsg()).appendJumpingDots().build();
 
     }
 
     protected void showLoading(String text) {
         mSVProgressHUD = new SVProgressHUD(getContext());
         mSVProgressHUD.showWithStatus(text);
+        JumpingBeans.
+                with(mSVProgressHUD.getmSharedView().getTvMsg()).appendJumpingDots().build();
 
     }
 
     protected void showLoadingCanCancelable() {
         mSVProgressHUD = new SVProgressHUD(getContext());
+
         mSVProgressHUD.showWithStatusCanCancelable("Wait...");
+        JumpingBeans.
+                with(mSVProgressHUD.getmSharedView().getTvMsg()).appendJumpingDots().build();
 
     }
 
     protected void showLoadingCanCancelable(String text) {
         mSVProgressHUD = new SVProgressHUD(getContext());
+
         mSVProgressHUD.showWithStatusCanCancelable(text);
+        JumpingBeans.
+                with(mSVProgressHUD.getmSharedView().getTvMsg()).appendJumpingDots().build();
 
     }
 
     protected void dissLoading() {
-        if (mSVProgressHUD != null) {
-            mSVProgressHUD.dismiss();
-        }
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (mSVProgressHUD != null) {
+                    mSVProgressHUD.dismiss();
+                }
+            }
+        });
+
     }
+
+
 
     public SVProgressHUD getmSVProgressHUD() {
         return mSVProgressHUD;

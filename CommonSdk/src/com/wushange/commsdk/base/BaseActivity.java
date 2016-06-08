@@ -2,13 +2,19 @@ package com.wushange.commsdk.base;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 import com.wushange.commsdk.customview.svprogresshud.SVProgressHUD;
+import com.wushange.commsdk.util.HideInputUtils;
+
+import net.frakbot.jumpingbeans.JumpingBeans;
 
 import org.xutils.x;
 
@@ -73,22 +79,69 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseAct
     }
 
 
+    protected void showLoading() {
+        mSVProgressHUD = new SVProgressHUD(getContext());
+
+        mSVProgressHUD.showWithStatus("Wait...");
+        JumpingBeans.
+                with(mSVProgressHUD.getmSharedView().getTvMsg()).appendJumpingDots().build();
+
+    }
+
     protected void showLoading(String text) {
         mSVProgressHUD = new SVProgressHUD(getContext());
-        mSVProgressHUD.showWithStatus("Wait...");
+
+        mSVProgressHUD.showWithStatus(text);
+        JumpingBeans.
+                with(mSVProgressHUD.getmSharedView().getTvMsg()).appendJumpingDots().build();
+
+    }
+
+    protected void showLoadingCanCancelable() {
+        mSVProgressHUD = new SVProgressHUD(getContext());
+        mSVProgressHUD.showWithStatusCanCancelable("Wait...");
+        JumpingBeans.
+                with(mSVProgressHUD.getmSharedView().getTvMsg()).appendJumpingDots().build();
 
     }
 
     protected void showLoadingCanCancelable(String text) {
         mSVProgressHUD = new SVProgressHUD(getContext());
-        mSVProgressHUD.showWithStatusCanCancelable("Wait...");
+        mSVProgressHUD.showWithStatusCanCancelable(text);
+        JumpingBeans.
+                with(mSVProgressHUD.getmSharedView().getTvMsg()).appendJumpingDots().build();
 
     }
 
     protected void dissLoading() {
-        if (mSVProgressHUD != null) {
-            mSVProgressHUD.dismiss();
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (mSVProgressHUD != null) {
+                    mSVProgressHUD.dismiss();
+                }
+            }
+        });
+
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+            View v = getCurrentFocus();
+            if (HideInputUtils.isShouldHideInput(v, ev)) {
+
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imm != null) {
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                }
+            }
+            return super.dispatchTouchEvent(ev);
         }
+        if (getWindow().superDispatchTouchEvent(ev)) {
+            return true;
+        }
+        return onTouchEvent(ev);
     }
 
     public SVProgressHUD getmSVProgressHUD() {
